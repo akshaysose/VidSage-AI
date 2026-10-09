@@ -46,6 +46,20 @@ The summarization prompt requests a summary of the loaded content in approximate
 - **Unstructured** - Webpage content extraction.
 - **Validators** - URL validation.
 
+## Dependency Roles
+
+The main runtime dependencies work together as follows:
+
+| Dependency | Role |
+|---|---|
+| `streamlit` | Renders the user interface and runs the web application. |
+| `langchain` | Provides the summarization chain and prompt orchestration. |
+| `langchain-community` | Provides the YouTube and webpage document loaders. |
+| `langchain-groq` | Connects LangChain to the Groq chat model API. |
+| `validators` | Checks whether the submitted source is a valid URL. |
+| `youtube_transcript_api` | Retrieves transcript content used by YouTube loading. |
+| `unstructured` | Extracts text from webpage content. |
+
 ## Project Structure
 
 ```text
@@ -134,4 +148,3 @@ The application creates a `ChatGroq` client with the `Gemma-7b-It` model. The su
 - URLs containing `youtube.com` use the YouTube loader.
 - Other valid URLs use the webpage loader.
 - Processing errors are displayed in the Streamlit interface.
-
